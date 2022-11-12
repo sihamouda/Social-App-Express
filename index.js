@@ -14,4 +14,13 @@ app.get("/:id", function (req, res) {
   res.send("id: " + req.params.id);
 });
 
+app.use("/", function (req, res, next) {
+  console.log("A request for things received at " + Date.now());
+  next();
+});
+
+app.get("/", function (req, res) {
+  res.send("hello");
+});
+
 app.listen(3000);
