@@ -7,23 +7,24 @@ import SignIn from "./Components/SignIn";
 import About from "./Components/About";
 import Home from "./Components/Home";
 import "./App.css";
+import Container from "react-bootstrap/esm/Container";
+import Stack from "react-bootstrap/Stack";
 
 function App() {
   return (
-    <div className="App">
+    <Stack gap={4}>
       <Router>
         <NavBar />
-        <div className="container" id="inlineStyling">
+        <Container>
           <Routes>
             <Route exact path="/" element={<Home />}></Route>
             <Route exact path="/About" element={<About />}></Route>
             <Route exact path="/Signin" element={<SignIn />}></Route>
             <Route exact path="/Login" element={<LogIn />}></Route>
           </Routes>
-        </div>
+        </Container>
       </Router>
-      {/* <LogIn /> */}
-    </div>
+    </Stack>
   );
 }
 

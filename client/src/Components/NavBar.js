@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 
 function NavBar() {
   return (
-    <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
+    <Navbar collapseOnSelect bg="light">
       <Container>
         <Navbar.Brand>
           <Link to="/" style={{ textDecoration: "none" }}>
@@ -21,7 +21,7 @@ function NavBar() {
                 About
               </Link>
             </Nav.Link>
-            <NavDropdown title="Dropdown" id="collasible-nav-dropdown">
+            {/* <NavDropdown title="Dropdown" id="collasible-nav-dropdown">
               <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
               <NavDropdown.Item href="#action/3.2">
                 Another action
@@ -31,10 +31,10 @@ function NavBar() {
               <NavDropdown.Item href="#action/3.4">
                 Separated link
               </NavDropdown.Item>
-            </NavDropdown>
+            </NavDropdown> */}
           </Nav>
           <Nav>
-            <Nav.Link href="#deets">
+            <Nav.Link>
               <Link to="/Signin" style={{ textDecoration: "none" }}>
                 Signin
               </Link>
