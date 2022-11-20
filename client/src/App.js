@@ -1,9 +1,9 @@
 import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import NavBar from "./Components/NavBar";
-import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import LogIn from "./Components/LogIn";
-import SignIn from "./Components/SignIn";
+import SignUp from "./Components/SignUp";
 import About from "./Components/About";
 import Home from "./Components/Home";
 import "./App.css";
@@ -19,7 +19,7 @@ function App() {
           <Routes>
             <Route exact path="/" element={<Home />}></Route>
             <Route exact path="/About" element={<About />}></Route>
-            <Route exact path="/Signin" element={<SignIn />}></Route>
+            <Route exact path="/SignUp" element={<SignUp />}></Route>
             <Route exact path="/Login" element={<LogIn />}></Route>
           </Routes>
         </Container>
