@@ -17,6 +17,18 @@ I fixed a Navbar in the App component, integrated React-Router v6 so we can rout
 
 Finally I made a RESTful API to get the submitted data from the SignIn component.
 
+### Day 4 - 6:
+
+I spend most of the time understanding some core concepts in web form, like where should I validate the data: is it in the Front or the Back? How should I integrate the form notification system: should the Back send messages to the Front about some fields requirements?
+
+I concluded that I have to validate data from the Client-Side before sending it to the Server, I could have some test in the Back-End, but Front-End validation is cruitial!
+
+Therefore, after googling and asking some friends, I used react-hook-form for validation data (it took fewer lines than using setState) and react toastify for simple notification like error notificatation. Reading their documentation wasn't that hard. What I loved about this project that I just can look on the internet for some opensource hooks that facilitate Front development and focus more on JavaScript itself and the Back-End
+
+I also made two simple APIs in the Server-Side to receive the data from SignUp and LogIn after validation
+
 ## Nextstep
 
-I'm going to make another API to the LogIn component, make the Back-End code cleaner, and work on implementing a socket between the Front and the Back to get notifications on registration/login
+Connect to a database and save accounts
+
+connect to an account and sessions
