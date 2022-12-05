@@ -1,12 +1,30 @@
-var express = require("express");
+// import and create express
+const express = require("express");
+const app = express();
 
-var app = express();
+// import ODM mongoose
+const mongoose = require("mongoose");
 
-var signup = require("./SignUp/SignUp.js");
-var login = require("./LogIn/LogIn.js");
+require("dotenv").config();
 
-app.use("/SignUp", signup);
+// middleware
+app.use(express.json());
 
-app.use("/LogIn", login);
+// importing routes
+const userRoutes = require("./routes/userRoute");
 
-app.listen(3030);
+// using routes
+app.use("/api/user", userRoutes);
+
+// connect to db then starting app
+mongoose
+  .connect(process.env.MONGO_URI)
+  .then(() => {
+    // listen for requests
+    app.listen(process.env.PORT, () => {
+      console.log("connected to db & listening on port", process.env.PORT);
+    });
+  })
+  .catch((error) => {
+    console.log(error);
+  });
