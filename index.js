@@ -10,6 +10,23 @@ require("dotenv").config();
 // middleware
 app.use(express.json());
 
+// for logging
+app.use((req,res,next)=>{
+  // time
+  const timeElapsed = Date.now();
+  const today = new Date(timeElapsed);
+  
+  const activityLog = {
+    "RequestURL":req.originalUrl,
+    "RequestMethod":req.method,
+    "Time":today.toUTCString()
+  }
+
+  console.log(activityLog)
+  
+  next()
+})
+
 // importing routes
 const userRoutes = require("./routes/userRoute");
 
