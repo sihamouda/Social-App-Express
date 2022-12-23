@@ -1,0 +1,6 @@
+PORT=
+
+JWTACCTOKENSECRET=
+JWTREFRESHTOKENSECRET=
+
+MONGO_URI=mongodb://mongodb:(port of mongo container)/(database name)

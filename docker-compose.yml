@@ -1,5 +1,19 @@
-version: '3.8'
+version: "3.8"
 services:
+  express:
+    build:
+      context: ./src/
+      dockerfile: Dockerfile.yml
+    ports:
+      - $PORT:$PORT
+    # volumes:
+    #   - ./:/usr/app
+    command: npm start
+    depends_on:
+      - mongodb
+    networks:
+      - back
+
   mongodb:
     image: mongo:latest # use the latest image.
     container_name: mongodb
@@ -8,20 +22,28 @@ services:
     #   MONGO_INITDB_ROOT_USERNAME: $MONGO_USER
     #   MONGO_INITDB_ROOT_PASSWORD: $MONGO_PASSWORD
     ports:
-      - $MONGO_PORT:$MONGO_PORT
+      - $MONGO_PORT:27017
     volumes: # to preserve database after container is deleted.
       - ./database-data:/data/db
-  
+    networks:
+      - back
+
   # Mongo Express Service
   mongo-express:
     image: mongo-express:latest # latest image
     container_name: mongo-express
     restart: unless-stopped
     ports:
-      - $MONGO_EXPRESS_PORT:$MONGO_EXPRESS_PORT
+      - $MONGO_EXPRESS_PORT:8081
     environment:
       ME_CONFIG_MONGODB_ADMINUSERNAME: $MONGO_EXPRESS_USER
       ME_CONFIG_MONGODB_ADMINPASSWORD: $MONGO_EXPRESS_PASSWORD
-      ME_CONFIG_MONGODB_SERVER: mongodb 
+      ME_CONFIG_MONGODB_SERVER: mongodb
       # use the name of the mongo container above for server env var.
       # In our case this is mongodb
+    networks:
+      - back
+
+networks:
+  back:
+    driver: bridge
