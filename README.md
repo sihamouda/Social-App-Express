@@ -19,7 +19,7 @@ Therefore, I used Express.JS instead of Nest.JS or any other framework. I found 
 - [x] Refresh Token generation
 - [x] Protection of APIs with Access Token
 - [x] Refresh Token Rotation
-- [ ] Reuse Detection
+- [x] Reuse Detection
 - [x] Create a blog API
 - [x] List all blogs API
 - [ ] List blogs by id
