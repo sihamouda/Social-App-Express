@@ -17,6 +17,8 @@ const loginUser = async (req, res) => {
     // create a Refresh Token
     const refreshToken = createRefreshToken(user._id);
 
+    await User.updateRefreshToken(user._id, refreshToken);
+
     res.status(200).json({ acctoken, refreshToken });
   } catch (error) {
     res.status(400).json({ error: error.message });
@@ -30,7 +32,7 @@ const signupUser = async (req, res) => {
   try {
     const user = await User.signup(username, email, password);
 
-    res.status(200).json({ status: succesfull });
+    res.status(200).json({ status: "succesfull" });
   } catch (error) {
     res.status(400).json({ error: error.message });
   }

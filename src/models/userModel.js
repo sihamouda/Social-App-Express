@@ -16,6 +16,9 @@ const userSchema = new Schema({
     type: String,
     required: true,
   },
+  refreshtoken: {
+    type: String,
+  },
 });
 
 // when we create model with mongoose they come automatically with some static methods like find
@@ -69,6 +72,15 @@ userSchema.statics.login = async function (username, password) {
   }
 
   return user;
+};
+
+// static update refreshtoken method
+userSchema.statics.updateRefreshToken = async function (_id, refreshtoken) {
+  await this.findByIdAndUpdate(
+    _id,
+    { refreshtoken: refreshtoken },
+    { new: true }
+  );
 };
 
 module.exports = model("User", userSchema);

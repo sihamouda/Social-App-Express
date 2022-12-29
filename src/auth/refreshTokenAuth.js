@@ -5,7 +5,7 @@ const { createAccToken } = require("../auth/accessTokenAuth");
 
 const createRefreshToken = (_id) => {
   return jwt.sign({ _id }, process.env.JWTREFRESHTOKENSECRET, {
-    expiresIn: "1d",
+    expiresIn: "5m",
   });
 };
 
@@ -24,12 +24,19 @@ const refreshTokenAuth = async (req, res) => {
   try {
     const { _id } = jwt.verify(token, process.env.JWTREFRESHTOKENSECRET);
 
-    req.user = await User.findOne({ _id }).select("_id");
+    const user = await User.findOne({ _id }).select("refreshtoken");
+
+    if (token !== user.refreshtoken) {
+      await User.updateRefreshToken(user._id, "");
+      throw "old refresh token";
+    }
 
     // create an Access Token
     const acctoken = createAccToken(_id);
     // create a Refresh Token
     const refreshToken = createRefreshToken(_id);
+
+    await User.updateRefreshToken(_id, refreshToken);
     res.status(200).json({ acctoken, refreshToken });
   } catch (error) {
     console.log(error);
