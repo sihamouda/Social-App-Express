@@ -18,6 +18,7 @@ app.use((req, res, next) => {
 
   const activityLog = {
     RequestURL: req.originalUrl,
+    headers: req.headers,
     RequestMethod: req.method,
     Time: today.toUTCString(),
   };

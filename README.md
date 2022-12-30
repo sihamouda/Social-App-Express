@@ -1,9 +1,8 @@
 # Simple Express App
 
-This is a REST API app for a blog website.
+This is an Express.JS REST API for a blog website.
 
 It is a personal project to help me improve my devolepment skills and my network protocols knowledge.
-Therefore, I used Express.JS instead of Nest.JS or any other framework. I found myself read a lot of articles about JavaScript, ECMAscript, Back-End Architecture ...
 
 ![Logo](https://miro.medium.com/max/800/1*M10QaO1mZCk_jvH2EBNmaQ.jpeg "title")
 
@@ -13,6 +12,22 @@ Therefore, I used Express.JS instead of Nest.JS or any other framework. I found 
 2. Run docker-compose: `docker-compose up`
 
 ## Next Steps
+
+### New checklist - Microsevices
+
+- [ ] Move from monolithic app to a microservices
+  - [ ] API gateway
+  - [ ] User service
+  - [ ] Blogs service
+  - [ ] Implement RabbitMQ to increase reading speed: 2DBs mongo (for writing) and elastic (for reading)
+
+#### API gateway
+
+- [x] Routes all requests
+- [ ] Move Token management to the gateway
+- [ ] Add gateway to docker-compose
+
+### Old checklist - Monolithic app
 
 - [x] Authentication APIs : signup & login
 - [x] Access Token generation
