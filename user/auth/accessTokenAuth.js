@@ -19,7 +19,7 @@ const accessTokenAuth = async (req, res, next) => {
 
   try {
     const { _id } = jwt.verify(token, process.env.JWTACCTOKENSECRET);
-
+    console.log(_id);
     const user = await User.findOne({ _id }).select("refreshtoken");
     if (user.refreshtoken === "") {
       throw "old access token";

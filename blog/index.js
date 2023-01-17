@@ -29,11 +29,11 @@ app.use((req, res, next) => {
 });
 
 // importing routes
-const userRoutes = require("./routes/userRoute");
+
 const blogRoutes = require("./routes/blogRoute");
 
 // using routes
-app.use("/api/auth", userRoutes);
+
 app.use("/api/blogs", blogRoutes);
 
 // connect to db then starting app

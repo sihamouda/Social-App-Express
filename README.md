@@ -17,15 +17,33 @@ It is a personal project to help me improve my devolepment skills and my network
 
 - [ ] Move from monolithic app to a microservices
   - [ ] API gateway
-  - [ ] User service
-  - [ ] Blogs service
+  - [x] User service
+  - [x] Blogs service
   - [ ] Implement RabbitMQ to increase reading speed: 2DBs mongo (for writing) and elastic (for reading)
 
 #### API gateway
 
-- [x] Routes all requests
+- [ ] Routes all requests
 - [ ] Move Token management to the gateway
-- [ ] Add gateway to docker-compose
+- [x] Add to docker-compose
+
+#### User service
+
+- [x] Signup
+- [x] Login
+- [x] Add to docker-compose
+- [x] Has its own database
+
+#### Blog service
+
+- [x] Create a blog API
+- [x] List all blogs API
+- [ ] List blogs by id
+- [ ] Link blog with user
+- [ ] Comment a blog
+- [ ] React a blog
+- [x] Add to docker-compose
+- [x] Has its own database
 
 ### Old checklist - Monolithic app
 
@@ -35,17 +53,3 @@ It is a personal project to help me improve my devolepment skills and my network
 - [x] Protection of APIs with Access Token
 - [x] Refresh Token Rotation
 - [x] Reuse Detection
-- [x] Create a blog API
-- [x] List all blogs API
-- [ ] List blogs by id
-- [ ] Link blog with user
-- [ ] Comment a blog
-- [ ] React a blog
-
-## Resources that helped me
-
-[YouTube Playlist: ExpressJS 2022 Course](https://www.youtube.com/playlist?list=PL_cUvD4qzbkwp6pxx27pqgohrsP8v1Wj2)
-
-[YouTube Playlist: MERN Auth Tutorial](https://www.youtube.com/playlist?list=PL4cUxeGkcC9g8OhpOZxNdhXggFz2lOuCT)
-
-[YouTube Video: How Does JWT Authentication Work](https://www.youtube.com/watch?v=hoBSjmrwF1k)

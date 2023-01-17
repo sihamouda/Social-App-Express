@@ -13,7 +13,7 @@ router.post("/:service/:apiName", (req, res) => {
 
   axios
     .post(
-      "http://localhost:4000/api/" +
+      "http://localhost:4001/api/" +
         req.params.service +
         "/" +
         req.params.apiName,
@@ -39,7 +39,7 @@ router.get("/:service/:apiName", (req, res) => {
 
   axios
     .get(
-      "http://localhost:4000/api/" +
+      "http://localhost:4001/api/" +
         req.params.service +
         "/" +
         req.params.apiName,

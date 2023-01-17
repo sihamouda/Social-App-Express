@@ -1,7 +1,7 @@
 const User = require("../models/userModel");
 const jwt = require("jsonwebtoken");
 
-const { createAccToken } = require("../auth/accessTokenAuth");
+const { createAccToken } = require("./accessTokenAuth");
 
 const createRefreshToken = (_id) => {
   return jwt.sign({ _id }, process.env.JWTREFRESHTOKENSECRET, {
