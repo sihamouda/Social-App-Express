@@ -7,9 +7,9 @@ require("dotenv").config();
 // middleware
 app.use(express.json());
 
-// middleware: for logging
-const { logs } = require("./middlewares/logs");
-app.use(logs);
+// middleware: morgan for logging
+const { setupLogging } = require("./middlewares/logs");
+setupLogging(app);
 
 // api router
 const router = require("./routes/router");

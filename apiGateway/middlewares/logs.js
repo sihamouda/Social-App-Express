@@ -1,17 +1,11 @@
-const logs = (req, res, next) => {
-  // time
-  const timeElapsed = Date.now();
-  const today = new Date(timeElapsed);
+const morgan = require("morgan");
 
-  const activityLog = {
-    RequestURL: req.originalUrl,
-    RequestMethod: req.method,
-    Time: today.toUTCString(),
-  };
-
-  console.log(activityLog);
-
-  next();
+const setupLogging = (app) => {
+  app.use(
+    morgan(
+      ":remote-addr :method :url HTTP/:http-version :status :res[content-length] :response-time ms"
+    )
+  );
 };
 
-module.exports = { logs };
+exports.setupLogging = setupLogging;

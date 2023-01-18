@@ -14,7 +14,7 @@ services:
 
   auth:
     build:
-      context: ./auth/
+      context: ./user/
       dockerfile: Dockerfile.yml
     ports:
       - $PORTAUTH:4001
