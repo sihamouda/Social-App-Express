@@ -1,0 +1,34 @@
+{
+  "services": [
+    {
+      "name": "users-service",
+      "url": "http://auth:4001",
+      "version": "1.0.0",
+      "description": "Handles user authentication and authorization",
+      "api": [
+        {
+          "name": "signup",
+          "uri": "/api/auth/signup",
+          "method": "POST",
+          "description": "REST API that handles signup"
+        },
+        {
+          "name": "login",
+          "uri": "/api/auth/login",
+          "method": "POST",
+          "description": "REST API that handles login"
+        }
+      ],
+      "dependencies": [""],
+      "health": "healthy"
+    },
+    {
+      "name": "blogs-service",
+      "url": "http://blog:4002",
+      "version": "1.0.0",
+      "description": "Processes blogs",
+      "dependencies": [""],
+      "health": "healthy"
+    }
+  ]
+}

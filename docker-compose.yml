@@ -5,7 +5,7 @@ services:
       context: ./apiGateway/
       dockerfile: Dockerfile.yml
     ports:
-      - $PORTGATEWAY:3000
+      - $PORTGATEWAY:4000
     command: npm start
     depends_on:
       - auth

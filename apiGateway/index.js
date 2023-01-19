@@ -4,12 +4,17 @@ const app = express();
 
 require("dotenv").config();
 
-// middleware
-app.use(express.json());
+// middleware bodyParser
+const bodyParser = require("body-parser");
+app.use(bodyParser.json());
 
 // middleware: morgan for logging
 const { setupLogging } = require("./middlewares/logs");
 setupLogging(app);
+
+// api auth
+const { auth } = require("./routes/auth");
+app.use("/api/auth", auth);
 
 // api router
 const router = require("./routes/router");
