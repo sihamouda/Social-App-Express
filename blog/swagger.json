@@ -1,0 +1,84 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "version": "1.0.0", 
+    "title": "Blog-service",
+    "description": "A service that handles blogs"
+  },
+  "host": "localhost:4002",
+  "basePath": "/",
+  "tags": [
+    {
+      "name": "Blogs",
+      "description": "API for blogs in the system"
+    }
+  ],
+  "schemes": ["http"],
+  "consumes": ["application/json"],
+  "produces": ["application/json"],
+  "definitions":{
+    "Blog":{
+      "properties":{
+        "title":{
+          "type":"string"
+        },
+        "body":{
+          "type":"string"
+        }
+      },
+      "required": ["title","body"]
+    }
+  },
+  "paths": {
+    "/api/blogs/add": {
+      "post": {
+        "tags": ["Blogs"],
+        "description": "Create new Blog in system",
+        "parameters": [
+          {
+            "name": "blog",
+            "in": "body",
+            "description": "Blog that we want to create",
+            "schema": {
+              "$ref": "#/definitions/Blog"
+            }
+          }
+        ],
+        "produces": ["application/json"],
+        "responses": {
+          "200": {
+            "description": "New blog is created",
+            "schema": {
+              "$ref": "#/definitions/Blog"
+            }
+          }
+        }
+      }
+    },
+    "/api/blogs/list": {
+      "get": {
+        "tags": ["Blogs"],
+        "description": "connect blog in system",
+        "parameters": [
+          {
+            "name": "blog",
+            "in": "body",
+            "description": "Blog that we want to connect",
+            "schema": {
+              "$ref": "#/definitions/Blog"
+            }
+          }
+        ],
+        "produces": ["application/json"],
+        "responses": {
+          "200": {
+            "description": "Blog login",
+            "schema": {
+              "$ref": "#/definitions/Blog"
+            }
+          }
+        }
+      }
+    }
+  }
+}

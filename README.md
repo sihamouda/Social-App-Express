@@ -11,30 +11,29 @@ It is a personal project to help me improve my devolepment skills and my network
 1. Fill the .env files
 2. Run docker-compose: `docker-compose up`
 
-## Next Steps
+## Checklist
 
-### New checklist - Microsevices
+### API gateway
 
-- [ ] Move from monolithic app to a microservices
-  - [ ] API gateway
-  - [x] User service
-  - [x] Blogs service
-  - [ ] Implement RabbitMQ to increase reading speed: 2DBs mongo (for writing) and elastic (for reading)
+**check /api-docs for API details**
 
-#### API gateway
-
-- [ ] Routes all requests
-- [ ] Move Token management to the gateway
+- [x] Routes all requests
 - [x] Add to docker-compose
 
-#### User service
+### User service
 
-- [x] Signup
-- [x] Login
-- [x] Add to docker-compose
+**check /api-docs for API details**
+
+- [x] Authentication APIs : signup & login
+- [x] Access Token generation
+- [x] Refresh Token generation
+- [x] Refresh Token Rotation
+- [x] Reuse Detection
 - [x] Has its own database
 
-#### Blog service
+### Blog service
+
+**check /api-docs for API details**
 
 - [x] Create a blog API
 - [x] List all blogs API
@@ -42,14 +41,5 @@ It is a personal project to help me improve my devolepment skills and my network
 - [ ] Link blog with user
 - [ ] Comment a blog
 - [ ] React a blog
-- [x] Add to docker-compose
 - [x] Has its own database
 
-### Old checklist - Monolithic app
-
-- [x] Authentication APIs : signup & login
-- [x] Access Token generation
-- [x] Refresh Token generation
-- [x] Protection of APIs with Access Token
-- [x] Refresh Token Rotation
-- [x] Reuse Detection

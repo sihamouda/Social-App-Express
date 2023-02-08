@@ -17,6 +17,18 @@
           "uri": "/api/auth/login",
           "method": "POST",
           "description": "REST API that handles login"
+        },
+        {
+          "name": "accesstoken",
+          "uri": "/api/auth/accesstoken",
+          "method": "ANY",
+          "description": "REST API that handles accesstoken"
+        },
+        {
+          "name": "refreshtoken",
+          "uri": "/api/auth/refreshtoken",
+          "method": "ANY",
+          "description": "REST API that handles refreshtoken"
         }
       ],
       "dependencies": [""],
@@ -27,6 +39,20 @@
       "url": "http://blog:4002",
       "version": "1.0.0",
       "description": "Processes blogs",
+      "api": [
+        {
+          "name": "add",
+          "uri": "/api/blogs/add",
+          "method": "POST",
+          "description": "REST API that handles new blogs"
+        },
+        {
+          "name": "list",
+          "uri": "/api/blogs/list",
+          "method": "GET",
+          "description": "REST API that lists all blogs of the database"
+        }
+      ],
       "dependencies": [""],
       "health": "healthy"
     }

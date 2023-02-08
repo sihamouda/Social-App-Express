@@ -5,8 +5,14 @@ const { Router } = require("express");
 const router = Router();
 
 // importing Controllers
-const { loginUser, signupUser } = require("../controllers/userController");
-const { refreshTokenAuth } = require("../auth/refreshTokenAuth");
+const {
+  signupUser,
+  loginUser,
+  accessTokenAuth,
+  refreshTokenAuth,
+} = require("../controllers/userController");
+
+
 
 // signup route
 router.post("/signup", signupUser);
@@ -14,8 +20,11 @@ router.post("/signup", signupUser);
 // login route
 router.post("/login", loginUser);
 
+// access token route
+router.get("/accesstoken", accessTokenAuth);
+
 // refresh token route
-router.post("/refreshtoken", refreshTokenAuth);
+router.get("/refreshtoken", refreshTokenAuth);
 
 // exporting routes
 module.exports = router;

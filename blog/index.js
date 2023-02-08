@@ -10,30 +10,26 @@ require("dotenv").config();
 // middleware
 app.use(express.json());
 
-// for logging
-app.use((req, res, next) => {
-  // time
-  const timeElapsed = Date.now();
-  const today = new Date(timeElapsed);
+// middleware: morgan for logging
+const { setupLogging } = require("./middlewares/logs");
+setupLogging(app);
 
-  const activityLog = {
-    RequestURL: req.originalUrl,
-    headers: req.headers,
-    RequestMethod: req.method,
-    Time: today.toUTCString(),
-  };
+// importing Swagger
+const swaggerUi = require("swagger-ui-express");
+const swaggerDocument = require("./swagger.json");
 
-  console.log(activityLog);
 
-  next();
-});
+app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocument,{
+  explorer: true,
+  customCssUrl:
+    "https://cdn.jsdelivr.net/npm/swagger-ui-themes@3.0.0/themes/3.x/theme-newspaper.css",
+}));
+
 
 // importing routes
-
 const blogRoutes = require("./routes/blogRoute");
 
 // using routes
-
 app.use("/api/blogs", blogRoutes);
 
 // connect to db then starting app

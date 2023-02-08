@@ -3,7 +3,7 @@ services:
   gateway:
     build:
       context: ./apiGateway/
-      dockerfile: Dockerfile.yml
+      dockerfile: Dockerfile
     ports:
       - $PORTGATEWAY:4000
     command: npm start
@@ -15,7 +15,7 @@ services:
   auth:
     build:
       context: ./user/
-      dockerfile: Dockerfile.yml
+      dockerfile: Dockerfile
     ports:
       - $PORTAUTH:4001
     command: npm start
@@ -27,7 +27,7 @@ services:
   blog:
     build:
       context: ./blog/
-      dockerfile: Dockerfile.yml
+      dockerfile: Dockerfile
     ports:
       - $PORTBLOG:4002
     command: npm start
